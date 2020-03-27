@@ -26,6 +26,7 @@ RUN wget https://downloads.apache.org/spark/spark-${spark_version}/spark-${spark
 RUN tar -xvzf /tmp/spark.tgz -C /opt/
 RUN ln -s spark-${spark_version}-bin-without-hadoop spark
 ENV SPARK_HOME /opt/spark
+ENV SPARK_CONF_DIR /opt/spark/conf
 
 # install apache hadoop
 ARG hadoop_version="2.10.0"
@@ -33,6 +34,7 @@ RUN wget https://downloads.apache.org/hadoop/common/hadoop-${hadoop_version}/had
 RUN tar -xvzf /tmp/hadoop.tar.gz -C /opt/
 RUN ln -s hadoop-${hadoop_version} hadoop
 ENV HADOOP_HOME /opt/hadoop
+ENV HADOOP_CONF_DIR /opt/hadoop/conf
 
 # configure for livy
 RUN cp livy/conf/livy.conf.template livy/conf/livy.conf
