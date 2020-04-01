@@ -46,4 +46,4 @@ ADD entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 
 # start livy-server
-# ENTRYPOINT ["/opt/entrypoint.sh"]
+ENTRYPOINT ["/opt/entrypoint.sh"]
