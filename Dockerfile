@@ -38,6 +38,8 @@ ENV HADOOP_CONF_DIR /opt/hadoop/conf
 
 # configure for livy
 RUN cp livy/conf/livy.conf.template livy/conf/livy.conf
+RUN echo 'livy.file.local-dir-whitelist = /work' >> /opt/livy/conf/livy.conf
+RUN mkdir -p /work
 ENV LIVY_CONF_DIR /opt/livy/conf/livy.conf
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 EXPOSE 8998
